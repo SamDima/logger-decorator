@@ -5,7 +5,7 @@ Summary: general-purpose decorator with request_id (optionally)
 Home-page: UNKNOWN
 Author: Dmitriy Ignatiev
 Author-email: dmitriy.ignatiev83@gmail.com
-License: UNKNOWN
+License: MIT License
 Description: 
     Logger Decorator
             
