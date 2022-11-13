@@ -1,0 +1,8 @@
+README.md
+logger_decorator.py
+setup.py
+universal_logger.egg-info/PKG-INFO
+universal_logger.egg-info/SOURCES.txt
+universal_logger.egg-info/dependency_links.txt
+universal_logger.egg-info/requires.txt
+universal_logger.egg-info/top_level.txt

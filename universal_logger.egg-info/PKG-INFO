@@ -1,0 +1,12 @@
+Metadata-Version: 1.0
+Name: Logger decorator
+Version: 0.0.1
+Summary: general-purpose decorator with request_id (optionally)
+Home-page: UNKNOWN
+Author: Dmitriy Ignatiev
+Author-email: dmitriy.ignatiev83@gmail.com
+License: UNKNOWN
+Description: 
+    Logger Decorator
+            
+Platform: UNKNOWN
