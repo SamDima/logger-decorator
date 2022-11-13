@@ -1,14 +1,15 @@
-# Universal Logger Decorator
+#  Logger Decorator
 
-    Universal Logger Decorator can log sync/async/yield (sync/async) functions. 
+    
+    Logger Decorator can log sync/async/yield (sync/async) functions. 
     
     Can pass unique request id for all functions to have possibility ease find in your log all operations by filtering request_id.
     
     Use as simple python decorator
 
 ## Getting started
-    1. pip install universal_logger
-    1.1 import: from logger_decorator import logger_decorator
+    1. pip install logger_decorator
+    1.1 import: logger_decorator.logger_decorator import logger_decorator
     1.2 If function return yield need to pass yield_=True
     1.3 Decorator need to be placed last
     1.4 To generate unique request_id  you need use  middleware
@@ -51,7 +52,7 @@
 
 # Usage with Django
     <middlewary.py>
-    from universla_logger import set_request_id
+    from logger_decorator import set_request_id
 
     class MyMiddleware:
         def __init__(self, get_response):
@@ -66,7 +67,7 @@
     <serializers.py>
     from rest_framework import serializers
     from main.models import Book
-    from universal_logger import logger_decorator
+    from logger_decorator.logger_decorator import logger_decorator
     
     @logger_decorator(event_type='helper_func')
     def helper_func():

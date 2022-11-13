@@ -1,18 +1,21 @@
+import setuptools
 from setuptools import setup
 
-VERSION="0.0.1"
+VERSION="2.3.1"
 
 setup(
-    name="universal-logger",
+    name="logger-decorator",
     author="Dmitriy Ignatiev",
-    author_email="dmitriy.ignatiev83@gmail.com",
+    author_email="dmitrignatyev@gmail.com",
     version=VERSION,
-    py_modules=["universal_logger"],
-    description="Universal logger decorator",
+    py_modules=["logger_decorator"],
+    description="Logger decorator with request id",
     long_description="""
-    Universal logger decorator with log request_id (optionally)
+    Logger decorator with log request_id (optionally)
     """,
     install_requires=[
         "loguru"
-    ]
+    ],
+    packages=setuptools.find_packages(),
+    python_requires='>=3.6'
 )

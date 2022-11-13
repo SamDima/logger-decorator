@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: logger-decorator
+Version: 2.3.1
+Summary: Logger decorator with request id
+Author: Dmitriy Ignatiev
+Author-email: dmitrignatyev@gmail.com
+Requires-Python: >=3.6
+
+
+    Logger decorator with log request_id (optionally)
+    
