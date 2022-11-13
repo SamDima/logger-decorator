@@ -9,7 +9,7 @@
 
 ## Getting started
     1. pip install logger_decorator
-    1.1 import: logger_decorator.logger_decorator import logger_decorator
+    1.1 import: from logger_decorator import logger_decorator
     1.2 If function return yield need to pass yield_=True
     1.3 Decorator need to be placed last
     1.4 To generate unique request_id  you need use  middleware
@@ -67,7 +67,7 @@
     <serializers.py>
     from rest_framework import serializers
     from main.models import Book
-    from logger_decorator.logger_decorator import logger_decorator
+    from logger_decorator import logger_decorator
     
     @logger_decorator(event_type='helper_func')
     def helper_func():

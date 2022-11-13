@@ -1,7 +1,11 @@
 import setuptools
 from setuptools import setup
 
-VERSION="2.3.1"
+from pathlib import Path
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
+
+VERSION="3.0.0"
 
 setup(
     name="logger-decorator",
@@ -9,10 +13,8 @@ setup(
     author_email="dmitrignatyev@gmail.com",
     version=VERSION,
     py_modules=["logger_decorator"],
-    description="Logger decorator with request id",
-    long_description="""
-    Logger decorator with log request_id (optionally)
-    """,
+    long_description = long_description,
+    long_description_content_type="text/markdown",
     install_requires=[
         "loguru"
     ],
