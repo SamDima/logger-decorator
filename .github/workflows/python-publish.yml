@@ -36,6 +36,10 @@ jobs:
     - name: Build package
       run: python -m build
       working-directory: ./logger_decorator
+
+    - name: List files in dist
+      run: ls -la ./logger_decorator/dist/
+
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
