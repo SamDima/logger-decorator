@@ -45,3 +45,4 @@ jobs:
       with:
         user: ${{secrets.PYPI_USERNAME}}
         password: ${{ secrets.PYPI_SECRET }}
+        packages_dir: ./logger_decorator/dist/
