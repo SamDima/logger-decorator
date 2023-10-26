@@ -1,11 +1,19 @@
 #  Logger Decorator
 
-    
     Logger Decorator can log sync/async/yield (sync/async) functions. 
     
     Can pass unique request id for all functions to have possibility ease find in your log all operations by filtering request_id.
     
     Use as simple python decorator
+
+    if you need alerting to slack you can use @LoggerDecorator intead of @logger_decorator
+    @LoggerDecorator(
+        event_type='main_func',
+        full_trace=True,
+        webhook_url=<you_url>',
+        entry=True,
+        notification_slack=True
+        )
 
 ## Getting started
     1. pip install logger_decorator
