@@ -1,4 +1,6 @@
-from logger_decorator import logger_decorator
+import pytest
+
+from logger_decorator.logger_decorator import logger_decorator
 
 @logger_decorator(event_type='simple_sync_fnc')
 def another_sync_fnc(*args, **kwargs):
