@@ -54,19 +54,19 @@ def get_error(e, full_trace=False):
 
 
 class Notification:
-    def send(self):
-        slack_data = {'text': str(_log_data.get())}
+
+    @staticmethod
+    def send_message_to_slack_webhook(log_info):
+        event_type = log_info.get('Exit').get('event_type')
+        slack_data = {'text': str({'Message': f'Something wrong with {event_type}, see logs by request_id',
+                                   'request_id':_request_id_ctx_var.get(),
+                                   'short trace': log_info.get('Exit').get('func_result')
+                                   }
+                                  )}
         requests.post(
             _webhook_url_slack.get(), data=json.dumps(slack_data),
             headers={'Content-Type': 'application/json'}
         )
-
-def send_message_to_slack_webhook(log_info):
-    slack_data = {'text': str(log_info)}
-    requests.post(
-        _webhook_url_slack.get(), data=json.dumps(slack_data),
-        headers={'Content-Type': 'application/json'}
-    )
 
 
 class Ctx:
@@ -158,7 +158,7 @@ def logger_decorator(event_type=None, *, full_trace=False, entry=False, exit=Tru
 
                     if error:
                         if notification_slack:
-                            send_message_to_slack_webhook(log_info)
+                            Notification.send_message_to_slack_webhook(log_info)
 
                     if exit:
                         logger_.log(level, log_info)
@@ -196,7 +196,7 @@ def logger_decorator(event_type=None, *, full_trace=False, entry=False, exit=Tru
 
                     if error:
                         if notification_slack:
-                            send_message_to_slack_webhook(log_info)
+                            Notification.send_message_to_slack_webhook(log_info)
 
                     if exit:
                         logger_.log(level, log_info)
@@ -258,7 +258,7 @@ def logger_decorator(event_type=None, *, full_trace=False, entry=False, exit=Tru
 
                 if error:
                     if notification_slack:
-                        send_message_to_slack_webhook(log_info)
+                        Notification.send_message_to_slack_webhook(log_info)
 
                 if exit:
                     logger_.log(level, log_info)
@@ -321,7 +321,7 @@ def logger_decorator(event_type=None, *, full_trace=False, entry=False, exit=Tru
                 if error:
                     if notification_slack:
                         _log_data.set(log_info)
-                        send_message_to_slack_webhook(log_info)
+                        Notification.send_message_to_slack_webhook(log_info)
 
 
                 if exit:
