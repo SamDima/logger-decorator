@@ -20,7 +20,8 @@ WEBHOOK_URL = 'webhook_url'
 _request_id_ctx_var: ContextVar[str] = ContextVar(REQUEST_ID_CTX_KEY, default=req_id_default)
 _request_additional_var: ContextVar[any] = ContextVar(REQUEST_ADDITIONAL_CTX_KEY, default=None)
 _webhook_url_slack: ContextVar[str] = ContextVar('_webhook_url_slack', default=None)
-_log_data: ContextVar[Dict[str, str]] = ContextVar('_log_data')
+_log_data: ContextVar[Dict[str, str]] = ContextVar('_log_data', default=None)
+_log_link: ContextVar[str] = ContextVar('_log_link', default=None)
 
 
 def set_request_id() -> Token[str]:
@@ -60,6 +61,7 @@ class Notification:
         event_type = log_info.get('Exit').get('event_type')
         slack_data = {'text': str({'Message': f'Something wrong with {event_type}, see logs by request_id',
                                    'request_id':_request_id_ctx_var.get(),
+                                   'log_link': _log_link.get(),
                                    'short trace': log_info.get('Exit').get('func_result')
                                    }
                                   )}
